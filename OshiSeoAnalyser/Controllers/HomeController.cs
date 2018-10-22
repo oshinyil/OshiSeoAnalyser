@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OshiSeoAnalyser.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,22 @@ namespace OshiSeoAnalyser.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var model = new SeoRequest();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Analyse(SeoRequest model)
+        {
+            var result = new AnalyseResult
+            {
+                Text = model.IsUrl ? model.Url : model.Text
+            };
+
+            return PartialView("_AnalyseResult", result);
         }
 
         public ActionResult About()
