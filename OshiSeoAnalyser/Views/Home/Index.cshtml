@@ -1,8 +1,6 @@
 ﻿@model OshiSeoAnalyser.Models.SeoRequest
 @{
-                /**/
-
-                ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home Page";
 }
 
 @using (Ajax.BeginForm("Analyse", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "analyse-result" }))

@@ -151,7 +151,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AnalyseResult.cs" />
+    <Compile Include="Models\SeoResponse.cs" />
     <Compile Include="Models\SeoRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -215,6 +215,12 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OshiSeoAnalyser.Core\OshiSeoAnalyser.Core.csproj">
+      <Project>{ddaf15f5-b9a7-4ca0-b6b3-c51f8d9405c5}</Project>
+      <Name>OshiSeoAnalyser.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

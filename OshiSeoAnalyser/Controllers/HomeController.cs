@@ -1,4 +1,5 @@
-﻿using OshiSeoAnalyser.Models;
+﻿using OshiSeoAnalyser.Core;
+using OshiSeoAnalyser.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,12 @@ namespace OshiSeoAnalyser.Controllers
         [HttpPost]
         public ActionResult Analyse(SeoRequest model)
         {
-            var result = new AnalyseResult
+            var wordOccurences = SeoAnalyser.Analyse(model.Text);
+
+            var result = new SeoResponse
             {
-                Text = model.IsUrl ? model.Url : model.Text
+                Text = model.IsUrl ? model.Url : model.Text,
+                WordOccurences = wordOccurences
             };
 
             return PartialView("_AnalyseResult", result);

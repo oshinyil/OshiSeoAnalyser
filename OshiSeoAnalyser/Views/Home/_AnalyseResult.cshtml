@@ -1,1 +1,19 @@
-﻿@Html.Label("Analyse Result")
+﻿@model OshiSeoAnalyser.Models.SeoResponse
+
+<table class="table-bordered">
+    <thead>
+        <tr>
+            <th>Word</th>
+            <th>Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.WordOccurences)
+        {
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>
