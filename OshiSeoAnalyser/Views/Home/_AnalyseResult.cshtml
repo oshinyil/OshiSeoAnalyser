@@ -1,19 +1,26 @@
 ﻿@model OshiSeoAnalyser.Models.SeoResponse
 
-<table class="table-bordered">
-    <thead>
-        <tr>
-            <th>Word</th>
-            <th>Count</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.WordOccurences)
-        {
+@if (Model.IsSuccess)
+{
+    <table class="table-bordered">
+        <thead>
             <tr>
-                <td>@item.Key</td>
-                <td>@item.Value</td>
+                <th>Word</th>
+                <th>Count</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.WordOccurences)
+            {
+                <tr>
+                    <td>@item.Key</td>
+                    <td>@item.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>An error eccured while processing your request. Error message: @Model.ErrorMessage</p>
+}
