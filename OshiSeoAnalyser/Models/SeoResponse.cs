@@ -4,7 +4,8 @@ namespace OshiSeoAnalyser.Models
 {
     public class SeoResponse
     {
-        public string Text { get; set; }
+        public bool IsSuccess { get; set; }
+        public string ErrorMessage { get; set; }
         public IDictionary<string, int> WordOccurences { get; set; }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using OshiSeoAnalyser.Core;
 using OshiSeoAnalyser.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace OshiSeoAnalyser.Controllers
@@ -20,15 +18,24 @@ namespace OshiSeoAnalyser.Controllers
         [HttpPost]
         public ActionResult Analyse(SeoRequest model)
         {
-            var wordOccurences = SeoAnalyser.Analyse(model.Text);
+            var response = new SeoResponse();
 
-            var result = new SeoResponse
+            try
             {
-                Text = model.IsUrl ? model.Url : model.Text,
-                WordOccurences = wordOccurences
-            };
+                var wordOccurences = model.IsUrl
+                    ? SeoAnalyser.Analyse(model.Url, model.Options.Where(x => x.Selected).Select(x => x.Value).ToArray())
+                    : SeoAnalyser.Analyse(model.Text);
 
-            return PartialView("_AnalyseResult", result);
+                response.WordOccurences = wordOccurences;
+                response.IsSuccess = true;
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.ErrorMessage = ex.Message;
+            }
+
+            return PartialView("_AnalyseResult", response);
         }
 
         public ActionResult About()

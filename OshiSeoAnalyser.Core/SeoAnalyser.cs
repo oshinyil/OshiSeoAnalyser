@@ -33,6 +33,13 @@ namespace OshiSeoAnalyser.Core
             return CountWordOccurences(cleanWords);
         }
 
+        public static IDictionary<string, int> Analyse(string url, string[] options)
+        {
+            var rawHtml = HtmlReader.ReadRawHtml(url);
+            //TODO: extract html content and apply the analysis options
+            return Analyse(rawHtml);
+        }
+
         private static IEnumerable<string> GetCleanWordList(string rawText)
         {
             var splittedWords = rawText.ToLowerInvariant().Split(Separators, StringSplitOptions.RemoveEmptyEntries);
