@@ -17,5 +17,17 @@ namespace OshiSeoAnalyser.Core
                 }
             }
         }
+
+        public static string ExtractHtmlContent(string rawHtml)
+        {
+            // TODO: extract html content, 3rd party library can be used: Html Agility Pack
+            return rawHtml;
+        }
+
+        public static string[] ExtractMetaTags(string rawHtml)
+        {
+            // TODO: extract meta tags from html
+            return new string[] { "" };
+        }
     }
 }
