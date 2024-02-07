@@ -1,7 +1,7 @@
 # OshiSeoAnalyser
 
 ## Overview
-This web application performs a simple SEO analysis of the text. User submits a text in English or URL, page filters out stop-words (e.g. ‘or’, ‘and’, ‘a’, ‘the’ etc), calculates number of occurrences on the page of each word, number of occurrences on the page of each word listed in meta tags, number of external links in the text.
+This web application performs a simple SEO analysis of the text. User submits a text in English or URL, page filters out stop-words (e.g. ‘or’, ‘and’, ‘a’, ‘the’ etc.), calculates number of occurrences on the page of each word, number of occurrences on the page of each word listed in meta tags, number of external links in the text.
 
 ## How to run 
 Open the solution in Visual Studio. Start with `OshiSeoAnalyser` project as the startup.
